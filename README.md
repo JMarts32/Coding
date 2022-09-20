@@ -1,2 +1,4 @@
 # LeetCode
-This is a repositorio with my answers to leetcode problems
+author @JMarts32
+This is a repository with my answers to leetcode problems
+
