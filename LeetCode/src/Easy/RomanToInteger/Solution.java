@@ -19,8 +19,7 @@ public class Solution {
         int contador = 0;
         for (int i = 0; i < s.length(); i++) {
             int uno = roman.get(String.valueOf(s.charAt(i)));
-            int dos = roman.get(String.valueOf(s.charAt(i+1)))
-            if (uno < dos && i<s.length()-1){
+            if (i<s.length()-1 && uno < roman.get(String.valueOf(s.charAt(i+1)))){
                 contador -= roman.get(String.valueOf(s.charAt(i)));
                 contador += roman.get(String.valueOf(s.charAt(i+1)));
                 i ++;
@@ -33,7 +32,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solucion = new Solution();
-        solucion.romanToInt("MCMXCIV");
+        solucion.romanToInt("II");
     }
 
 }
