@@ -1,4 +1,4 @@
-package Easy.RomanToInteger;
+package LeetCode.Easy.RomanToInteger;
 
 import java.util.Map;
 import static java.util.Map.entry;

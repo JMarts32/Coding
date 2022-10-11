@@ -1,4 +1,4 @@
-package Easy.FizzBuzz;
+package LeetCode.Easy.FizzBuzz;
 
 import java.util.ArrayList;
 import java.util.List;

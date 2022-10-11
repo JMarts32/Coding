@@ -1,4 +1,4 @@
-package Easy.RansomeNote;
+package LeetCode.Easy.RansomeNote;
 
 import java.util.HashMap;
 import java.util.Map;

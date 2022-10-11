@@ -1,4 +1,4 @@
-package Medium.SumOfEvenNumbersAfterQueries;
+package LeetCode.Medium.SumOfEvenNumbersAfterQueries;
 
 /*
 Lo primero que se hace para evitar la complejidad cuadraticas es:

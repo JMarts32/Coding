@@ -1,6 +1,5 @@
-package Easy.TheKWeakestRowsInAMatrix;
+package LeetCode.Easy.TheKWeakestRowsInAMatrix;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

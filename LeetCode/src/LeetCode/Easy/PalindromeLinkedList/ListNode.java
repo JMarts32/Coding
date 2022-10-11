@@ -1,4 +1,4 @@
-package Easy.PalindromeLinkedList;
+package LeetCode.Easy.PalindromeLinkedList;
 
 public class ListNode {
     int val;

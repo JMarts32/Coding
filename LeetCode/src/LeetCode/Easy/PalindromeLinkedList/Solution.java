@@ -1,4 +1,4 @@
-package Easy.MiddleOfTheLinkedList;
+package LeetCode.Easy.PalindromeLinkedList;
 
 /**
  * Definition for singly-linked list.
@@ -10,5 +10,8 @@ package Easy.MiddleOfTheLinkedList;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
-public class Solution {}
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        return false;
+    }
+}

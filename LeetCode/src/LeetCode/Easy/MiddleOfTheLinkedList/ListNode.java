@@ -1,4 +1,4 @@
-package Easy.MiddleOfTheLinkedList;
+package LeetCode.Easy.MiddleOfTheLinkedList;
 
 public class ListNode {
 

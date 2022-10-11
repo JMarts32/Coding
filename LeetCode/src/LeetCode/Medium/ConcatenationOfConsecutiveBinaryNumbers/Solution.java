@@ -1,4 +1,4 @@
-package Medium.ConcatenationOfConsecutiveBinaryNumbers;
+package LeetCode.Medium.ConcatenationOfConsecutiveBinaryNumbers;
 
 public class Solution {
     public int concatenatedBinary(int n) {
