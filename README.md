@@ -1,4 +1,3 @@
-# LeetCode
+# CPP
 author @JMarts32
-This is a repository with my answers to leetcode problems
-
+This is a repo to store my solutions of differents coding solving pages
