@@ -1,6 +1,5 @@
-package LeetCode.Easy.CountAndSay;
+package LeetCode.Medium.CountAndSay;
 
-import java.net.Inet4Address;
 import java.util.*;
 
 /*
