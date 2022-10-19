@@ -24,14 +24,19 @@ public class Solution {
             tMapC.put(entry.getValue(),tMapC.getOrDefault(entry.getValue(),"")+entry.getKey()+" ");
         }
 
+        // Go through the map to add to the final list the possible results
         for (Map.Entry<Integer,String> mRes : tMapC.entrySet()){
+            // Verify if the results wanted are already in the list
             if (k>0){
+                // split the String
+                // Bacause those that have the same count will be concatenated separated by space " "
                 String[] wors = mRes.getValue().split(" ");
+                // Go through the list of strings
                 for (String i : wors){
+                    // Verify if the results wanted are already in the list
                     if (k>0){
                         res.add(i);
                         k--;
-                        System.out.println(res);
                     }
                 }
             }
