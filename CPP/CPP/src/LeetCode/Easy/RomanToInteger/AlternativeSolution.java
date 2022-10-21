@@ -17,7 +17,7 @@ public class AlternativeSolution {
             // if the num is greater it is substracted until we get 0 and the final string
             while (num >= values[i]){
                 num -= values[i];
-                sb.append(values[i]);
+                sb.append(rom[i]);
             }
         }
         return sb.toString();
