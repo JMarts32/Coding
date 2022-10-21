@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/*
+Might look for a possible faster solution
+ */
 public class Solution {
     public String intToRoman(int num) {
 
@@ -94,11 +97,10 @@ public class Solution {
         if (cont/1 >= 0.9){
             int tho = (int) Math.floor(cont/1);
             cont -= 1*tho;
-            // Add to the Final string the times 1000 is repeated
+            // Add to the Final string the times 1 is repeated
             for (int i = 0; i < tho; i++) sb.append("I");
         }
 
-        System.out.println(sb.toString());
         return sb.toString();
     }
 
