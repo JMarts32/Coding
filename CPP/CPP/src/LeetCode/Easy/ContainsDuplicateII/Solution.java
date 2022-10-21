@@ -13,8 +13,8 @@ public class Solution {
         for (int i = 0; i < nums.length; i++){
             // If the value is already in the map it might substract the indices
             if (reps.containsKey(nums[i]) && Math.abs(reps.get(nums[i])-i) <= k){
-                // If the substraction is in the specified range (<=k) adds to cont that 1 pair
-                // The numbers repeated fulfill the restricctions
+                // If the substraction is in the specified range (<=k)
+                // return true because there exists at least 1 pair of index that fulfill the restrictions
                 return true;
             }else { // Is added to the map each one of the numbers
                 reps.put(nums[i],i);
