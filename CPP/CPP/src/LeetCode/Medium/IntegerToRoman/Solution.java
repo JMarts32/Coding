@@ -7,7 +7,7 @@ import java.util.Scanner;
 /*
 Might look for a possible faster solution
 
-Better solution is to use a hashmap and all the values with its results
+Better solution is to use lists (the index might be the same) and all the values with its results
 1000 = M
 900 = CM
 500 = D
