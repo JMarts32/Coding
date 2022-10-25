@@ -16,14 +16,17 @@ public class Solution {
             else return false;
         }
 
+        // Concatenate each of the Strings int he array word1 to compare it
         for (int i = 0; i < word1.length; i ++) {
             sb1.append(word1[i]);
         }
 
+        // Concatenate each of the Strings int he array word2 to compare it
         for (int i = 0; i < word2.length; i ++) {
             sb2.append(word2[i]);
         }
 
+        // Compare the String, if they are the same it returns true
         if (sb2.toString().equals(sb1.toString())) return true;
         else return false;
     }
