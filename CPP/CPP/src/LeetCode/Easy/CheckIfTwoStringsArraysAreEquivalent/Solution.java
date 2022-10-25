@@ -16,12 +16,15 @@ public class Solution {
             else return false;
         }
 
-        int max = 0;
-        if (word1.length > word2.length) max = word1.length;
-        else max = word2.length;
-
-        for (int i = 0; i < max)
-        {
+        for (int i = 0; i < word1.length; i ++) {
+            sb1.append(word1[i]);
         }
+
+        for (int i = 0; i < word2.length; i ++) {
+            sb2.append(word2[i]);
+        }
+
+        if (sb2.toString().equals(sb1.toString())) return true;
+        else return false;
     }
 }
