@@ -24,11 +24,11 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
  */
 public class Solution {
-    public int[] twoSum(int[] nums, int target) {
+    /*public int[] twoSum(int[] nums, int target) {
 
     }
 
     public static void main(String[] args) {
 
-    }
+    }*/
 }
