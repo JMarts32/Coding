@@ -30,60 +30,59 @@ Output: [0,1]
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         // We are putting all the numbers into a tree map
-        TreeMap<Integer,String> tm = new TreeMap<>();
+        TreeMap<Integer, String> tm = new TreeMap<>();
 
-        Map<Integer,String> hm = new HashMap<>();
+        Map<Integer, String> hm = new HashMap<>();
 
         int[] res = new int[2];
 
         // Add the elements to the tree
-        for (int i = 0; i < nums.length; i++){
-            if (hm.containsKey(nums[i])){
+        for (int i = 0; i < nums.length; i++) {
+            if (hm.containsKey(nums[i])) {
                 hm.replace(nums[i], hm.get(nums[i]).toString() + String.valueOf(i));
             } else {
-                hm.put(nums[i],String.valueOf(i));
+                hm.put(nums[i], String.valueOf(i));
             }
         }
 
         int rec = hm.keySet().size();
         int cont = 0;
 
-        while (cont < rec){
-            System.out.println(hm.keySet().toArray()[rec-1]);
+        while (cont < rec) {
+            System.out.println(hm.keySet().toArray()[rec - 1]);
 
-            if (hm.keySet().toArray()[rec-1]) > target){
-                if (tm.lastKey() == target && tm.get(tm.lastKey()).length() == 1 && tm.keySet().contains(0)){
+            if (true) {//hm.keySet().toArray()[rec-1]) > target){
+                if (tm.lastKey() == target && tm.get(tm.lastKey()).length() == 1 && tm.keySet().contains(0)) {
                     res[0] = Integer.parseInt(tm.get(0));
                     res[1] = Integer.parseInt(tm.get(tm.lastKey()));
                     return res;
                 }
-
-
-                if (tm.get(tm.lastKey()).length() > 1 && tm.lastKey()*2 == target){
-                    res[0] = Integer.parseInt(tm.get(tm.lastKey()).split("")[0]);
-                    res[1] = Integer.parseInt(tm.get(tm.lastKey()).split("")[1]);
-                    return res;
-                }
-
-                if (tm.get(tm.firstKey()).length() > 1 && tm.firstKey()*2 == target){
-                    res[0] = Integer.parseInt(tm.get(tm.firstKey()).split("")[0]);
-                    res[1] = Integer.parseInt(tm.get(tm.firstKey()).split("")[1]);
-                    return res;
-                }
-
-                if (tm.lastKey() + tm.firstKey() == target){
-                    res[0] = Integer.parseInt(tm.get(tm.firstKey()));
-                    res[1] = Integer.parseInt(tm.get(tm.lastKey()));
-                    return res;
-                } else {
-                    tm.remove(tm.firstKey());
-                    tm.remove(tm.firstKey());
-                    cont++;
-                }
-            } else {
-                tm.remove(tm.lastKey());
             }
-        }
+
+            if (tm.get(tm.lastKey()).length() > 1 && tm.lastKey() * 2 == target) {
+                res[0] = Integer.parseInt(tm.get(tm.lastKey()).split("")[0]);
+                res[1] = Integer.parseInt(tm.get(tm.lastKey()).split("")[1]);
+                return res;
+            }
+
+            if (tm.get(tm.firstKey()).length() > 1 && tm.firstKey() * 2 == target) {
+                res[0] = Integer.parseInt(tm.get(tm.firstKey()).split("")[0]);
+                res[1] = Integer.parseInt(tm.get(tm.firstKey()).split("")[1]);
+                return res;
+            }
+
+            if (tm.lastKey() + tm.firstKey() == target) {
+                res[0] = Integer.parseInt(tm.get(tm.firstKey()));
+                res[1] = Integer.parseInt(tm.get(tm.lastKey()));
+                return res;
+            } else {
+                tm.remove(tm.firstKey());
+                tm.remove(tm.firstKey());
+                cont++;
+            }
+        }/*else {
+                tm.remove(tm.lastKey());
+            }*/
         return res;
     }
 
