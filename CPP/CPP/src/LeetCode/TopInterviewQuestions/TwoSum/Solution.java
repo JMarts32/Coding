@@ -1,5 +1,7 @@
 package LeetCode.TopInterviewQuestions.TwoSum;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 /*
@@ -30,23 +32,26 @@ public class Solution {
         // We are putting all the numbers into a tree map
         TreeMap<Integer,String> tm = new TreeMap<>();
 
+        Map<Integer,String> hm = new HashMap<>();
+
         int[] res = new int[2];
 
         // Add the elements to the tree
         for (int i = 0; i < nums.length; i++){
-            if (tm.containsKey(nums[i])){
-                tm.replace(nums[i], tm.get(nums[i]).toString() + String.valueOf(i));
+            if (hm.containsKey(nums[i])){
+                hm.replace(nums[i], hm.get(nums[i]).toString() + String.valueOf(i));
             } else {
-                tm.put(nums[i],String.valueOf(i));
+                hm.put(nums[i],String.valueOf(i));
             }
         }
 
-        int rec = tm.keySet().size();
+        int rec = hm.keySet().size();
         int cont = 0;
 
         while (cont < rec){
+            System.out.println(hm.keySet().toArray()[rec-1]);
 
-            if (!(tm.lastKey() > target)){
+            if (hm.keySet().toArray()[rec-1]) > target){
                 if (tm.lastKey() == target && tm.get(tm.lastKey()).length() == 1 && tm.keySet().contains(0)){
                     res[0] = Integer.parseInt(tm.get(0));
                     res[1] = Integer.parseInt(tm.get(tm.lastKey()));
@@ -84,7 +89,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        int[] a = {0,4,3,0};
+        int[] a = {12,15,1,3};
         System.out.println(s.twoSum(a,0));
     }
 }
