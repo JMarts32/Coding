@@ -5,7 +5,7 @@ public class Solution {
     //Prime numbers 2,3, and 5
 
     public boolean isUgly(int n){
-        // Ugly number is a positive integer
+        // Ugly number is a positive integer greater than 0
         if (n < 1) return false;
         // No prime factors, therefore all its prime factors are limited
         if (n == 1)return true;
