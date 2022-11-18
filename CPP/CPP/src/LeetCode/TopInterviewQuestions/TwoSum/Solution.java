@@ -1,8 +1,6 @@
 package LeetCode.TopInterviewQuestions.TwoSum;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /*
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
@@ -29,66 +27,86 @@ Output: [0,1]
  */
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
-        // We are putting all the numbers into a tree map
-        TreeMap<Integer, String> tm = new TreeMap<>();
 
+        // We are putting all the numbers into a tree map to organize them
+        TreeMap<Integer, String> tm = new TreeMap<>();
         Map<Integer, String> hm = new HashMap<>();
 
+        // Result array
         int[] res = new int[2];
 
-        // Add the elements to the tree
+        // Add the elements to the hashmap
         for (int i = 0; i < nums.length; i++) {
             if (hm.containsKey(nums[i])) {
-                hm.replace(nums[i], hm.get(nums[i]).toString() + String.valueOf(i));
+                hm.replace(nums[i], hm.get(nums[i]) + i);
             } else {
                 hm.put(nums[i], String.valueOf(i));
             }
         }
 
+        // number of total numbers in the array -> -1 is the final position in the array
         int rec = hm.keySet().size();
         int cont = 0;
 
         while (cont < rec) {
-            System.out.println(hm.keySet().toArray()[rec - 1]);
 
-            if (true) {//hm.keySet().toArray()[rec-1]) > target){
-                if (tm.lastKey() == target && tm.get(tm.lastKey()).length() == 1 && tm.keySet().contains(0)) {
-                    res[0] = Integer.parseInt(tm.get(0));
-                    res[1] = Integer.parseInt(tm.get(tm.lastKey()));
+            // reviews the last object in the array of keys
+            int last = (Integer) hm.keySet().toArray()[rec-1];
+
+            //Reviews the first object in the array of keys
+            int first = (Integer) hm.keySet().toArray()[0];
+
+            if (last < first){
+                last = (Integer) hm.keySet().toArray()[0];
+                first = (Integer) hm.keySet().toArray()[rec-1];
+            }
+
+            if (hm.get(first).length() > 1 && first*2 == target){
+                res[0] = Integer.parseInt(hm.get(first).split("")[0]);
+                res[1] = Integer.parseInt(hm.get(first).split("")[1]);
+                return res;
+            }
+
+            if (last + first <= target) {
+                if (last == target && hm.containsKey(0)) {
+                    res[0] = Integer.parseInt(hm.get(0).split("")[0]);
+                    res[1] = Integer.parseInt(hm.get(last).split("")[0]);
                     return res;
                 }
-            }
 
-            if (tm.get(tm.lastKey()).length() > 1 && tm.lastKey() * 2 == target) {
-                res[0] = Integer.parseInt(tm.get(tm.lastKey()).split("")[0]);
-                res[1] = Integer.parseInt(tm.get(tm.lastKey()).split("")[1]);
-                return res;
-            }
 
-            if (tm.get(tm.firstKey()).length() > 1 && tm.firstKey() * 2 == target) {
-                res[0] = Integer.parseInt(tm.get(tm.firstKey()).split("")[0]);
-                res[1] = Integer.parseInt(tm.get(tm.firstKey()).split("")[1]);
-                return res;
-            }
+                if (hm.get(last).length() > 1 && last*2 == target){
+                    res[0] = Integer.parseInt(hm.get(last).split("")[0]);
+                    res[1] = Integer.parseInt(hm.get(last).split("")[1]);
+                    return res;
+                }
 
-            if (tm.lastKey() + tm.firstKey() == target) {
-                res[0] = Integer.parseInt(tm.get(tm.firstKey()));
-                res[1] = Integer.parseInt(tm.get(tm.lastKey()));
-                return res;
-            } else {
-                tm.remove(tm.firstKey());
-                tm.remove(tm.firstKey());
-                cont++;
+                if (last + first > target){
+                    hm.remove(last);
+                    hm.remove(first);
+                } else {
+
+                    if (last + first < target) hm.remove(first);
+
+                    if (last + first == target){
+                        res[0] = Integer.parseInt(hm.get(first));
+                        res[1] = Integer.parseInt(hm.get(last));
+                        return res;
+                    }
+                }
+
+            }else {
+                hm.remove(last);
             }
-        }/*else {
-                tm.remove(tm.lastKey());
-            }*/
+            rec = hm.keySet().size();
+        }
+        System.out.println(res);
         return res;
     }
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        int[] a = {12,15,1,3};
-        System.out.println(s.twoSum(a,0));
+        int[] a = {-1,-2,-3,-4,-5};
+        s.twoSum(a,-8);
     }
 }
