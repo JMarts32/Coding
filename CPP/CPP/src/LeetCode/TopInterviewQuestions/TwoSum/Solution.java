@@ -31,10 +31,14 @@ public class Solution {
 
         // Result array
         int[] res = new int[2];
-
+        //Lenght of the array of nums to iterate trhoug it
         int numsl = nums.length;
 
         for (int i = 0; i<numsl;i++ ){
+            /*
+            If there is into the hashmap the number that needs to be added to the number
+            on the position i to get the target number
+             */
             if (hm.containsKey(target-nums[i])){
                 res[1] = i;
                 res[0] = hm.get(target-nums[i]);
